@@ -1,6 +1,6 @@
-const choicesArray = ['rock', 'paper', 'scissors']
+const choicesArray = ['rock', 'paper', 'scissors'];
 
-const getComputerChoice = (array) => array[(Math.floor(Math.random() * array.length))]
+const getComputerChoice = (array) => array[(Math.floor(Math.random() * array.length))];
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -10,8 +10,19 @@ function playRound(playerSelection, computerSelection) {
         ((playerSelection == choicesArray[1]) && (computerSelection == choicesArray[0])) ||
         ((playerSelection == choicesArray[2]) && (computerSelection == choicesArray[1]))
     ) {
-        console.log('player wins')
+        console.log('player wins');
     } else {
-        console.log('computer wins')
-    }
-}
+        console.log('computer wins');
+    };
+};
+
+const buttons = document.querySelectorAll('.selection-button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.id;
+        let computerSelection = getComputerChoice(choicesArray);
+
+        playRound(playerSelection, computerSelection)
+    });
+});
