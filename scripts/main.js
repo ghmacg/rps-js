@@ -2,17 +2,19 @@ const choicesArray = ['rock', 'paper', 'scissors'];
 
 const getComputerChoice = (array) => array[(Math.floor(Math.random() * array.length))];
 
+const results = document.querySelector('#results');
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
-        console.log('tie');
+        results.textContent = 'tie';
     } else if (
         ((playerSelection == choicesArray[0]) && (computerSelection == choicesArray[2])) || 
         ((playerSelection == choicesArray[1]) && (computerSelection == choicesArray[0])) ||
         ((playerSelection == choicesArray[2]) && (computerSelection == choicesArray[1]))
     ) {
-        console.log('player wins');
+        results.textContent = 'player wins';
     } else {
-        console.log('computer wins');
+        results.textContent = 'computer wins';
     };
 };
 
