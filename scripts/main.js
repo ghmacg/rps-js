@@ -1,10 +1,11 @@
 const choicesArray = ['rock', 'paper', 'scissors'];
 
-const getComputerChoice = (array) => array[(Math.floor(Math.random() * array.length))];
-
 const results = document.querySelector('#results');
 const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
+const buttons = document.querySelectorAll('.selection-button');
+
+const getComputerChoice = (array) => array[(Math.floor(Math.random() * array.length))];
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -22,13 +23,23 @@ function playRound(playerSelection, computerSelection) {
     };
 };
 
-const buttons = document.querySelectorAll('.selection-button');
-
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerSelection = button.id;
         let computerSelection = getComputerChoice(choicesArray);
 
-        playRound(playerSelection, computerSelection)
+        playRound(playerSelection, computerSelection);
+
+        if (playerScore.textContent == 5) {
+            alert('You win!');
+            playerScore.textContent = 0;
+            computerScore.textContent = 0;
+            results.textContent = 'Make your choice';
+        } else if (computerScore.textContent == 5) {
+            alert('You lose!');
+            playerScore.textContent = 0;
+            computerScore.textContent = 0;
+            results.textContent = 'Make your choice';
+        };
     });
 });
