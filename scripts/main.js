@@ -4,6 +4,8 @@ const results = document.querySelector('#results');
 const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
 const buttons = document.querySelectorAll('.selection-button');
+const playerSelectionUI = document.querySelector('#player-selection');
+const computerSelectionUI = document.querySelector('#computer-selection')
 
 const getComputerChoice = (array) => array[(Math.floor(Math.random() * array.length))];
 
@@ -27,6 +29,8 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerSelection = button.id;
         let computerSelection = getComputerChoice(choicesArray);
+        playerSelectionUI.textContent = playerSelection
+        computerSelectionUI.textContent = computerSelection
 
         playRound(playerSelection, computerSelection);
 
