@@ -7,21 +7,28 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+    <div id="title">Rock Paper Scissors</div>
     <div id="container">
-        <div id="buttons-container">
-            <button id="rock" class="selection-button">Rock</button>
-            <button id="paper" class="selection-button">Paper</button>
-            <button id="scissors" class="selection-button">Scissors</button>
+        <div id="button-container">
+            <button id="rock" class="selection-button">👊</button>
+            <button id="paper" class="selection-button">✋</button>
+            <button id="scissors" class="selection-button">✌️</button>
         </div>
-        <div id="results-container">
+        <div id="result-container">
             <div id="results">Make your choice</div>
         </div>
         <div id="score-container">
-            <div id="player-score">0</div>
-            <div id="computer-score">0</div>
+            <div id="player-score-container">
+                <div id="player-score-text">Player:</div>
+                <div id="player-score">0</div>
+            </div>
+            <div id="computer-score-container">
+                <div id="computer-score-text">Computer:</div>
+                <div id="computer-score">0</div>
+            </div>
         </div>
     </div>
-    
+
     <script src="scripts/main.js"></script>
 </body>
 </html>
