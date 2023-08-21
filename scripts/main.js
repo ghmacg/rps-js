@@ -3,6 +3,8 @@ const choicesArray = ['rock', 'paper', 'scissors'];
 const getComputerChoice = (array) => array[(Math.floor(Math.random() * array.length))];
 
 const results = document.querySelector('#results');
+const playerScore = document.querySelector('#player-score');
+const computerScore = document.querySelector('#computer-score');
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -13,8 +15,10 @@ function playRound(playerSelection, computerSelection) {
         ((playerSelection == choicesArray[2]) && (computerSelection == choicesArray[1]))
     ) {
         results.textContent = 'player wins';
+        playerScore.textContent = Number(playerScore.textContent) + 1;
     } else {
         results.textContent = 'computer wins';
+        computerScore.textContent = Number(computerScore.textContent) + 1;
     };
 };
 
