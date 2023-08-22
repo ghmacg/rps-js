@@ -1,5 +1,4 @@
 const choicesArray = ['rock', 'paper', 'scissors'];
-
 const results = document.querySelector('#results');
 const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
@@ -8,6 +7,14 @@ const playerSelectionUI = document.querySelector('#player-selection');
 const computerSelectionUI = document.querySelector('#computer-selection')
 
 const getComputerChoice = (array) => array[(Math.floor(Math.random() * array.length))];
+
+const resetValues = () => {
+    playerScore.textContent = 0;
+    computerScore.textContent = 0;
+    playerSelectionUI.textContent = 'Selection';
+    computerSelectionUI.textContent = 'Selection';
+    results.textContent = 'Make your choice';
+}
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -36,14 +43,10 @@ buttons.forEach((button) => {
 
         if (playerScore.textContent == 5) {
             alert('You win!');
-            playerScore.textContent = 0;
-            computerScore.textContent = 0;
-            results.textContent = 'Make your choice';
+            resetValues();
         } else if (computerScore.textContent == 5) {
             alert('You lose!');
-            playerScore.textContent = 0;
-            computerScore.textContent = 0;
-            results.textContent = 'Make your choice';
+            resetValues();
         };
     });
 });
