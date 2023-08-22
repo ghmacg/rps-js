@@ -4,7 +4,7 @@ const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
 const buttons = document.querySelectorAll('.selection-button');
 const playerSelectionUI = document.querySelector('#player-selection');
-const computerSelectionUI = document.querySelector('#computer-selection')
+const computerSelectionUI = document.querySelector('#computer-selection');
 
 const getComputerChoice = (array) => array[(Math.floor(Math.random() * array.length))];
 
@@ -14,7 +14,7 @@ const resetValues = () => {
     playerSelectionUI.textContent = 'Selection';
     computerSelectionUI.textContent = 'Selection';
     results.textContent = 'Make your choice';
-}
+};
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -36,8 +36,8 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerSelection = button.id;
         let computerSelection = getComputerChoice(choicesArray);
-        playerSelectionUI.textContent = playerSelection
-        computerSelectionUI.textContent = computerSelection
+        playerSelectionUI.textContent = playerSelection;
+        computerSelectionUI.textContent = computerSelection;
 
         playRound(playerSelection, computerSelection);
 
