@@ -6,8 +6,10 @@ const buttons = document.querySelectorAll('.selection-button');
 const playerSelectionUI = document.querySelector('#player-selection');
 const computerSelectionUI = document.querySelector('#computer-selection');
 
+// Function that selects a random choice from the choices array for the computer  
 const getComputerChoice = (array) => array[(Math.floor(Math.random() * array.length))];
 
+// Fucntion to reset the values when a game is finished 
 const resetValues = () => {
     playerScore.textContent = 0;
     computerScore.textContent = 0;
@@ -16,6 +18,7 @@ const resetValues = () => {
     results.textContent = 'Make your choice';
 };
 
+// Function to get the winner of each round and update the points of each player
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         results.textContent = 'tie';
@@ -32,6 +35,8 @@ function playRound(playerSelection, computerSelection) {
     };
 };
 
+// When the real player selects a choice the computer selection is generated and the round proceeds to play
+//then it checks the score of each player to see if someone have won, if thats the case the game ends and the values are resetted
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerSelection = button.id;
