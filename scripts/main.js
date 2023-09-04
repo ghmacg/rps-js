@@ -1,4 +1,5 @@
 const choicesArray = ['rock', 'paper', 'scissors'];
+
 const results = document.querySelector('#results');
 const playerScore = document.querySelector('#player-score');
 const computerScore = document.querySelector('#computer-score');
@@ -35,23 +36,29 @@ function playRound(playerSelection, computerSelection) {
     };
 };
 
-// When the real player selects a choice the computer selection is generated and the round proceeds to play
-//then it checks the score of each player to see if someone have won, if thats the case the game ends and the values are resetted
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        let playerSelection = button.id;
-        let computerSelection = getComputerChoice(choicesArray);
-        playerSelectionUI.textContent = playerSelection;
-        computerSelectionUI.textContent = computerSelection;
-
-        playRound(playerSelection, computerSelection);
-
-        if (playerScore.textContent == 5) {
-            alert('You win!');
-            resetValues();
-        } else if (computerScore.textContent == 5) {
-            alert('You lose!');
-            resetValues();
-        };
+function playGame (duration) {
+    // When the real player selects a choice the computer selection is generated and the round proceeds to play
+    //then it checks the score of each player to see if someone have won, if thats the case the game ends and the values are resetted
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            let playerSelection = button.id;
+            let computerSelection = getComputerChoice(choicesArray);
+            playerSelectionUI.textContent = playerSelection;
+            computerSelectionUI.textContent = computerSelection;
+    
+            playRound(playerSelection, computerSelection);
+    
+            if (playerScore.textContent == duration) {
+                alert('You win!');
+                resetValues();
+            } else if (computerScore.textContent == duration) {
+                alert('You lose!');
+                resetValues();
+            };
+        });
     });
-});
+};
+
+
+// Function calling
+playGame(5);
